@@ -12,9 +12,7 @@ ee.Initialize()
 #                           datetime.datetime(2019, 12, 1)))
 
 # Filter the L7 collection to a single month.
-collection = (ee.ImageCollection('LANDSAT/LE07/C01/T1_TOA')
-              .filterDate(datetime.datetime(2020, 7, 1),
-                          datetime.datetime(2020, 8, 1)))
+collection = ee.ImageCollection('LANDSAT/LE07/C01/T1_TOA')
 
 
 def NDVI(image):
@@ -43,6 +41,6 @@ vis = {
     ]}
 
 # earth engine lat-long map
-ee.mapclient.centerMap(-122.085, 37.422, 12)
+ee.mapclient.centerMap(81.24609000000004,20.75260000000003, 12)
 ee.mapclient.addToMap(collection.map(NDVI).mean(), vis)
 # ee.mapclient.addToMap(collection.map(SAVI).mean(), vis)
